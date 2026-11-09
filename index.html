@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg1:#351323;--bg2:#4a1c33;--bg3:#783D58;--ink:#F3C9D8;--soft:#d6a3b8;--card:rgba(243,201,216,.08);--accent:#F3C9D8;--accent2:#e39ab6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));background-size:300% 300%;animation:bg 14s ease infinite;overflow-x:hidden;min-height:100vh}
+@keyframes bg{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:50}
+.balloons{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.b{position:absolute;bottom:-140px;width:46px;height:58px;border-radius:50% 50% 48% 48%;opacity:.8;animation:rise linear infinite}
+.b::after{content:"";position:absolute;left:50%;top:100%;width:1px;height:50px;background:var(--soft);opacity:.5}
+@keyframes rise{to{transform:translateY(-120vh) rotate(8deg)}}
+section{position:relative;z-index:1;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 22px}
+.eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;color:var(--soft);animation:fade 1.2s both}
+h1{font-family:'Dancing Script',cursive,serif;font-size:clamp(3.2rem,15vw,6.5rem);line-height:1;margin:14px 0 6px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite,pop 1.2s .3s both cubic-bezier(.2,1.4,.4,1)}
+@keyframes shine{to{background-position:200%}}
+@keyframes pop{from{opacity:0;transform:scale(.6) translateY(20px)}}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}}
+.name{font-family:'Dancing Script',cursive,serif;font-size:clamp(1.8rem,8vw,3rem);color:var(--ink);animation:fade 1.2s .9s both}
+.btn{margin-top:34px;border:0;cursor:pointer;font:500 1rem 'Poppins',sans-serif;color:#F3C9D8;padding:15px 30px;border-radius:999px;background:linear-gradient(90deg,#783D58,#a24f78);border:1px solid rgba(243,201,216,.4);box-shadow:0 10px 30px rgba(0,0,0,.35);animation:fade 1.2s 1.4s both,pulse 2.2s 2.6s infinite}
+@keyframes pulse{50%{transform:scale(1.06)}}
+.hint{color:var(--soft);font-size:.9rem;margin-top:10px;min-height:1.4em}
+#gift{display:none}
+.cake{position:relative;width:200px;margin:26px auto 8px}
+.tier{height:54px;border-radius:14px 14px 8px 8px;background:linear-gradient(#F3C9D8,#d99ab3);position:relative;box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.tier::before{content:"";position:absolute;inset:0 0 auto;height:18px;border-radius:14px 14px 40% 40%;background:#fff;opacity:.92}
+.tier.t2{width:150px;margin:0 auto;background:linear-gradient(#a24f78,#783D58);height:46px}
+.plate{height:10px;border-radius:50%;background:var(--soft);opacity:.4;margin-top:4px}
+.candles{display:flex;justify-content:center;gap:22px;margin-bottom:-2px}
+.c{width:10px;height:36px;border-radius:3px;background:repeating-linear-gradient(45deg,#F3C9D8,#F3C9D8 6px,#783D58 6px,#783D58 12px);position:relative;cursor:pointer}
+.c::before{content:"";position:absolute;left:50%;top:-22px;width:14px;height:22px;margin-left:-7px;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:radial-gradient(#fff6a8,#ffb02e 60%,transparent 72%);box-shadow:0 0 18px 6px rgba(255,190,60,.55);animation:flick .35s infinite alternate;transition:opacity .4s,transform .4s}
+.c.out::before{opacity:0;transform:scale(.2)}
+.c::after{content:"";position:absolute;inset:-30px -14px -4px}
+@keyframes flick{from{transform:scale(1) rotate(-3deg)}to{transform:scale(1.12,.94) rotate(3deg)}}
+#msg{display:none}
+.card{max-width:520px;background:var(--card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(243,201,216,.22);border-radius:28px;padding:34px 28px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.card h2{font-family:'Dancing Script',cursive,serif;font-size:2.2rem;color:var(--accent);margin-bottom:16px}
+.card p{line-height:1.8;color:var(--ink);margin-bottom:14px;font-weight:300;font-size:1.02rem;opacity:0;transform:translateY(14px);transition:opacity 1s,transform 1s}
+.card p.show{opacity:1;transform:none}
+.sign{font-family:'Dancing Script',cursive,serif;font-size:1.7rem;color:var(--accent2)}
+.heart{display:inline-block;animation:beat 1.2s infinite}
+@keyframes beat{50%{transform:scale(1.3)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="balloons" id="balloons"></div>
+
+<section id="hero">
+  <div class="eyebrow">A little something for you</div>
+  <h1>Happy Birthday</h1>
+  <div class="name" id="name"></div>
+  <button class="btn" id="open">Open your surprise ✨</button>
+</section>
+
+<section id="gift">
+  <h2 style="font-family:'Dancing Script',cursive,serif;font-size:2.4rem">Make a wish…</h2>
+  <div class="hint" id="hint">Tap the candles to blow them out</div>
+  <div class="cake">
+    <div class="candles" id="candles"><div class="c"></div><div class="c"></div><div class="c"></div></div>
+    <div class="tier t2"></div>
+    <div class="tier"></div>
+    <div class="plate"></div>
+  </div>
+</section>
+
+<section id="msg">
+  <div class="card">
+    <h2 id="to"></h2>
+    <p>Today the world celebrates the day you arrived, and honestly, it got so much better because of it.</p>
+    <p>You have a way of making ordinary days feel brighter. Your laugh, your kindness, and the way you show up for people are things I never take for granted.</p>
+    <p>I hope this year brings you everything you’ve been quietly wishing for: big joy, small perfect moments, and all the love you give so freely to others.</p>
+    <p>Some people pass through your life; others quietly become part of who you are. You, Vaishali, are one of the ones who stayed, and my life is softer, funnier and braver because of it.</p>
+    <p>Thank you for the laughs that left my cheeks sore, for listening when I didn’t have the words, and for believing in me on the days I forgot to believe in myself. Your friendship is one of the best things I have.</p>
+    <p>Whatever this new year brings, I hope you remember how loved you are, how much you matter, and that you never have to celebrate anything alone. I’ll always be in your corner, cheering the loudest.</p>
+    <p>If the universe has a way of making ordinary days special, I think it does so through people like you. I hope your days are filled with unexpected happiness, your heart stays light, and life surprises you in the most beautiful ways.</p>
+    <p>Some moments are special without needing a reason, and some people are special without even trying. Here’s wishing you a lifetime of beautiful tomorrows.</p>
+    <p>Happy Birthday, Vaishali. Thank you for being exactly you.</p>
+    <p class="sign">Forever yours, with all my love <span class="heart">💖</span></p>
+  </div>
+</section>
+
+<script>
+const NAME = "Vaishali";
+document.getElementById('name').textContent = NAME;
+document.getElementById('to').textContent = 'Dear ' + NAME + ',';
+
+// balloons
+const cols = ['#F3C9D8','#783D58','#a24f78','#e8a9c0','#5c2c43','#c9788f'];
+const bw = document.getElementById('balloons');
+for (let i = 0; i < 14; i++) {
+  const b = document.createElement('div');
+  b.className = 'b';
+  b.style.cssText = `left:${Math.random()*95}%;background:${cols[i%cols.length]};animation-duration:${9+Math.random()*10}s;animation-delay:${-Math.random()*14}s;transform:scale(${.7+Math.random()*.7})`;
+  bw.appendChild(b);
+}
+
+// confetti
+const cv = document.getElementById('fx'), ctx = cv.getContext('2d');
+let W, H, parts = [], running = false;
+function size(){ W = cv.width = innerWidth; H = cv.height = innerHeight; }
+size(); addEventListener('resize', size);
+function burst(n = 140){
+  for (let i = 0; i < n; i++) parts.push({
+    x: W/2, y: H*0.55, vx: (Math.random()-.5)*16, vy: -Math.random()*16-4,
+    r: 4+Math.random()*5, c: cols[i%cols.length], rot: Math.random()*6, vr: (Math.random()-.5)*.3, life: 0
+  });
+  if (!running) { running = true; loop(); }
+}
+function loop(){
+  ctx.clearRect(0,0,W,H);
+  parts = parts.filter(p => p.y < H+20 && p.life < 260);
+  parts.forEach(p => {
+    p.vy += .32; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life++;
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot); ctx.fillStyle = p.c;
+    ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*.6); ctx.restore();
+  });
+  if (parts.length) requestAnimationFrame(loop); else { running = false; ctx.clearRect(0,0,W,H); }
+}
+
+// flow
+const gift = document.getElementById('gift'), msg = document.getElementById('msg');
+document.getElementById('open').onclick = () => {
+  burst(160);
+  gift.style.display = 'flex';
+  setTimeout(() => gift.scrollIntoView({behavior:'smooth'}), 250);
+};
+const candles = [...document.querySelectorAll('.c')];
+candles.forEach(c => c.onclick = () => {
+  c.classList.add('out');
+  const left = candles.filter(x => !x.classList.contains('out')).length;
+  if (left === 0) {
+    document.getElementById('hint').textContent = 'Wish made! 🌟';
+    burst(220);
+    setTimeout(() => {
+      msg.style.display = 'flex';
+      msg.scrollIntoView({behavior:'smooth'});
+      document.querySelectorAll('.card p').forEach((p,i) => setTimeout(() => p.classList.add('show'), 700 + i*1300));
+    }, 900);
+  } else {
+    document.getElementById('hint').textContent = left + ' more to go…';
+  }
+});
+</script>
+</body>
+</html>
